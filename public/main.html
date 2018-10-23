@@ -1,0 +1,27 @@
+<!--main.html-->
+<!doctype	html>
+<html>		
+	<head>
+		<meta	charset="utf-8">
+		<title>Ćwierkacz</title>
+		<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script	src="javascripts/cwierkaczApp.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="stylesheets/style.css">
+	</head>
+	<body ng-app="cwierkaczApp">
+		<div id='main' ng-controller="mainController">
+			<form ng-submit="post()">
+				<input required type="text"	placeholder="Nick" ng-model="newPost.created_by" />
+				<textarea required maxlength="200" rows="3" placeholder="Powiedź coś"></textarea>
+				<input class="button" type="submit" value="Ćwierk!"/>
+			</form>
+			<div id="post-stream">
+				<h4>Ostatnie Ćwierki</h4>
+				<div class='post' ng-repeat="post in posts | orderBy:'created_at':true" ng-class-odd="'odd'"	ng-class-even="'even'">
+					<p>{{post.created_by}} says	{{post.text}} at {{post.created_at}}</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
