@@ -1,15 +1,20 @@
-var	express	=	require('express');
-var	api	= require('./routes/api');
-var	app	=	express();
-app.use('/api',	api);
-module.exports	=	app;
+var express = require('express');
+var bodyParser = require('body-parser');
+require('./models/posts');
+var api = require('./routes/api');
+var app = express();
 
-var	mongoose	=	require('mongoose');
-mongoose.connect("mongodb://localhost:27017/dbname")
-var	Schema	=	mongoose.Schema;
-var	postSchema	=	new	mongoose.Schema({
-				created_by:	String,
-				created_at:	{type:	Date,	default:	Date.now},
-				text:	String
-});
-mongoose.model('Post',	postSchema);
+//	Sekcja	middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use('/api', api);
+
+
+module.exports = app;
+
+/*
+var mongoose = require('mongoose');
+var Post = mongoose.model('Post');
+Post.findById(id, function (err, post) {
+})
+*/
