@@ -1,0 +1,28 @@
+sudo apt-get update
+sudo apt-get install software-properties-common  python-software-properties -y
+sudo add-apt-repository ppa:pi-rho/security  
+sudo apt-get update 
+sudo apt-get install wireshark -y
+
+W razie problemów z instalacją należy wykonać następujące polecenia:
+$ sudo rm /var/lib/apt/lists/lock
+$ sudo rm /var/cache/apt/archives/lock
+$ sudo rm /var/lib/dpkg/lock
+$ sudo apt-get update
+
+
+sudo ovs-vsctl show
+d202a9b9-8c79-4c21-a29d-eceb372e1ee2
+    Bridge "s1"
+        Controller "tcp:127.0.0.1:6633"
+            is_connected: true
+        Controller "ptcp:6634"
+        fail_mode: secure
+        Port "s1"
+            Interface "s1"
+                type: internal
+        Port "s1-eth1"
+            Interface "s1-eth1"
+        Port "s1-eth2"
+            Interface "s1-eth2"
+    ovs_version: "2.0.2"
