@@ -1,0 +1,9 @@
+2018-12-05
+
+sudo apt-get update
+sudo apt-get install build-essential ant maven python-dev eclipse
+
+Eclipse autoformat: ctr + shift + f
+
+sudo mn --controller=remote,ip=<controller_ip>,port=6653
+sudo mn --controller=remote,ip=127.0.0.1,port=6653
